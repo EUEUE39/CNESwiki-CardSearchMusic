@@ -35,9 +35,9 @@ export default {
 body{
   border:30px solid white;
   background:rgb(228,232,233);
-  height: calc(100vh - 60px);
+  height: calc(100vh - 60px );
   width: auto;
-  padding: 0;
+  /*padding: 0 20vh;*/
   margin:0;
 }
 </style>
