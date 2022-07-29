@@ -1,7 +1,9 @@
 <template>
   <div class="search-query-box">
     <div class="SearchButton">
-      搜索
+      <div>
+        搜索
+      </div>
     </div>
     <div class="SearchButton" v-on:click="rarityOAdd=!rarityOAdd">
       <div v-if=rarityOAdd>稀有度</div>
