@@ -58,7 +58,10 @@ export default {
   box-shadow: 3px 5px 6px rgba(0, 0, 0, 0.2);
   margin: 0 10px;
 
-
+  transition: 0.1s;   /* 缩放动画特效时间*/
+}
+.SearchButton:active{
+  transform: scale(0.95);
 }
 
 .SearchButton div {
