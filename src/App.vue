@@ -32,13 +32,13 @@ export default {
   /*margin-top: 60px;*/
 
 }
-body {
-  border:30px solid white!important;
-  background:rgb(228,232,233)!important;
-  height: calc(100vh - 60px )!important;
-  width: auto!important;
+#app {
+  border:30px solid white;
+  background:rgb(228,232,233);
+  height: calc(100vh - 60px );
+  width: auto;
   /*padding: 0 20vh;*/
-  margin:0!important;
-  box-sizing: unset!important;
+  margin:0;
+  box-sizing: unset;
 }
 </style>
