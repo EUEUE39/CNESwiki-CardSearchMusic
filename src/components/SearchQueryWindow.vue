@@ -25,21 +25,12 @@
                 Unit(蓝底白字 充满一行)
               </div>
               <div class="unit-content">
-<!--                <div v-for="unit_real_order in unit_order" :key="unit_real_order">-->
-<!--                  <div v-for="unitOne in unit_list" :key="unitOne.order">-->
-<!--                    <div class="unit-box" v-if="unitOne.order === unit_real_order">-->
-<!--                      <img :src="require('../assets/unit_logo_square1/unit_logo_square1_'+unitOne.unit_id+'.png')">-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-                <div v-for="unit in unit_list_new" :key="unit">
-                    <div class="unit-box" v-if="unit.unit_id!=11">
-                      <img :src="require('../assets/unit_logo_square1/unit_logo_square1_'+unit.unit_id+'.png')">
-                    </div>
+                <div class="unit-box" v-for="unit in unit_list_new" :key="unit">
+                  <img :src="require('../assets/unit_logo_square1/unit_logo_square1_'+unit.unit_id+'.png')" :alt="unit.unit">
                 </div>
-              </div>
-              <div class="unit-box">
-                <img :src="require('../assets/unit_logo_square1/unit_logo_square1_OTHER.png')">
+                <div class="unit-box">
+                  <img :src="require('../assets/unit_logo_square1/unit_logo_square1_OTHER.png')" alt="other">
+                </div>
               </div>
             </div>
           </div>
@@ -216,7 +207,7 @@ export default {
           "order": 15
         }
       ],
-      unit_list_new:[
+      unit_list_new: [
         {
           "unit_id": 2,
           "unit": "fine",
@@ -282,11 +273,11 @@ export default {
           "unit": "switch",
           "order": 13
         },
-        {
-          "unit_id": 11,
-          "unit": "mam",
-          "order": 14
-        },
+        // {
+        //   "unit_id": 11,
+        //   "unit": "mam",
+        //   "order": 14
+        // },
         {
           "unit_id": 17,
           "unit": "doubleface",
@@ -775,10 +766,6 @@ export default {
     }
   },
   computed: {
-    orderedUnits() {
-      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-      return this.unit_list.sort((a, b) => a.order.localeCompare(b.order));
-    },
   },
 }
 </script>
@@ -787,7 +774,7 @@ export default {
 .modal-header {
   background-color: rgb(8, 25, 73);
   color: white;
-  border: 0px;
+  border: 0;
 }
 
 .modal-body {
@@ -814,19 +801,20 @@ export default {
 .unit-box {
   background-color: rgb(255, 255, 255);
   /*width: 85px;*/
-  width:calc(20% - 10px);
+  width: calc(20% - 10px);
   /*height: calc(20% - 10px);*/
-  float:left;
+  float: left;
   /*height: calc(5%);*/
-  border:rgb(204,206,216) 2px solid;
+  border: rgb(204, 206, 216) 2px solid;
   border-radius: 10px;
-  margin:5px;
+  margin: 5px;
 }
 
-.unit-box img{
+.unit-box img {
   width: 100%;
   display: block;
 }
+
 /*.unit-content{*/
 /*  display: flex;*/
 /*  flex-direction: row;*/
