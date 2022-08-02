@@ -21,16 +21,33 @@
               abc
             </div>
             <div class="right unit-filter">
-              <div>
+              <div class="filter-title">
                 Unit(蓝底白字 充满一行)
               </div>
               <div class="unit-content">
-                <div class="unit-box" v-for="unit in unit_list_new" :key="unit">
-                  <img :src="require('../assets/unit_logo_square1/unit_logo_square1_'+unit.unit_id+'.png')" :alt="unit.unit">
+                <div v-for="unit in unit_list_new" :key="unit">
+                  <input type="checkbox" name="rarity_filter" :value="'unit_'+unit.unit_id"
+                         :id="'unit_'+unit.unit_id" class="unit-checkbox">
+                  <div class="unit-box">
+                    <label :for="'unit_'+unit.unit_id">
+                      <img :src="require('../assets/unit_logo_square1/unit_logo_square1_'+unit.unit_id+'.png')"
+                           :alt="unit.unit">
+                    </label>
+                  </div>
                 </div>
+                <input type="checkbox" name="rarity_filter" value="unit_OTHER"
+                       id="unit_OTHER" class="unit-checkbox">
                 <div class="unit-box">
+                  <label for="unit_OTHER">
                   <img :src="require('../assets/unit_logo_square1/unit_logo_square1_OTHER.png')" alt="other">
+                  </label>
                 </div>
+                <div class="clear"></div>
+              </div>
+              <div class="longen">
+                css3气泡框
+              </div>
+              <div>
               </div>
             </div>
           </div>
@@ -765,8 +782,7 @@ export default {
       ]
     }
   },
-  computed: {
-  },
+  computed: {},
 }
 </script>
 
@@ -798,14 +814,25 @@ export default {
   background-color: rgb(174, 176, 190);
 }
 
+.unit-content{
+  background-color: rgb(255,255,255);
+}
+/*.unit-content:after{*/
+/*  !*background-color:blue;*!*/
+/*  !*float:left;*!*/
+/*  content:"";*/
+/*  !*display: block;*!*/
+/*  clear: both;*/
+/*}*/
+.clear{
+  clear:both;
+}
+
 .unit-box {
   background-color: rgb(255, 255, 255);
-  /*width: 85px;*/
   width: calc(20% - 10px);
-  /*height: calc(20% - 10px);*/
   float: left;
-  /*height: calc(5%);*/
-  border: rgb(204, 206, 216) 2px solid;
+  border: rgb(204, 206, 216) 3px solid;
   border-radius: 10px;
   margin: 5px;
 }
@@ -815,9 +842,51 @@ export default {
   display: block;
 }
 
-/*.unit-content{*/
-/*  display: flex;*/
-/*  flex-direction: row;*/
-/*  flex-wrap: wrap;*/
-/*}*/
+.unit-checkbox{
+  display: none;
+}
+label{
+  display: block;
+}
+
+.filter-title{
+  background-color:rgb(12,26,93);
+  color: white;
+  text-align: left;
+  padding: 0 5px;
+  font-weight: bolder;
+}
+
+input[type=checkbox]:checked + .unit-box{
+  border: rgb(35,61,195) 3px solid;
+  box-shadow: 3px 5px 6px rgba(0, 0, 0, 0.2);
+}
+
+.longen {
+  width: 300px;
+  height: 100px;
+  border: 5px solid #09F;
+  position: relative;
+  background-color: #FFF;
+  margin:33px 0 0 0;
+}
+
+.longen:before,
+.longen:after {
+  content: "";
+  display: block;
+  border-width: 20px;
+  position: absolute;
+  top: -40px;
+  left: 100px;
+  border-style: dashed dashed solid;
+  border-color: transparent transparent #09F;
+  font-size: 0;
+  line-height: 0;
+}
+
+.longen:after {
+  top: -33px;
+  border-color: transparent transparent #FFF;
+}
 </style>
