@@ -1,10 +1,11 @@
 <template>
   <div class="search-query-box">
     <div class="SearchButton">
-      <div>
+      <div v-b-modal.centralModalDanger>
         搜索
       </div>
     </div>
+    <search-query-window></search-query-window>
     <div class="SearchButton" v-on:click="rarityOAdd=!rarityOAdd">
       <div v-if=rarityOAdd>稀有度</div>
       <div v-else>追加顺</div>
@@ -23,8 +24,13 @@
 </template>
 
 <script>
+import SearchQueryWindow from "@/components/SearchQueryWindow";
+
 export default {
   name: "SearchButton",
+  components: {
+    SearchQueryWindow,
+  },
   data() {
     return {
       rarityOAdd: false,
